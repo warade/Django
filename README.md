@@ -89,3 +89,47 @@ https://grafana.com/docs/installation/configuration/
 https://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/
 https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
 
+# Installation of Graphite on aws
+1. Install docker
+```
+sudo apt install docker.io
+```
+2. Run docker command
+```
+docker run -d\
+ --name graphite\
+ --restart=always\
+ -p 80:80\
+ -p 2003-2004:2003-2004\
+ -p 2023-2024:2023-2024\
+ -p 8125:8125/udp\
+ -p 8126:8126\
+ graphiteapp/graphite-statsd
+ ```
+ It may happen that someone using a port
+ To check the port
+ ```
+ sudo netstat -tulpn | grep :2004
+ ps -eaf | grep 31123
+ ```
+ Try to make sure no one is running on the ports mentioned in docker command
+ 
+3. Run for Graphite
+```
+http://ec2-52-26-169-20.us-west-2.compute.amazonaws.com:80
+```
+Done!
+
+# Installation of Grafana
+1. You have to open the port 3000 for EC2 instance.
+```
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install grafana
+```
+
+2. Run the grafana
+```
+sudo service grafana-server start
+```
