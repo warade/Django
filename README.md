@@ -187,3 +187,4 @@ https://grafana.com/docs/installation/configuration/
 https://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/
 https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
 https://django-statsd.readthedocs.io/en/latest/
+https://pyformance.readthedocs.io/en/latest/usage.html
