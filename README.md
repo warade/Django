@@ -8,18 +8,7 @@ But it didn't work
 https://grafana.com/docs/installation/debian/
 Worked!
 
-After these two you need to start apache server
-Installed apache with the following command
-```
-sudo apt-get install apache2 libapache2-mod-wsgi -y
-```
-Copying graphite configuration file to apache
-```
-sudo cp /usr/share/graphite-web/apache2-graphite.conf /etc/apache2/sites-available/
-sudo a2dissite 000-default
-sudo a2ensite apache2-graphite
-```
-After that my nginx was running on port 80 I had to kill it using
+Extra notes if nnginx was running on port 80 I had to kill it using
 ```
 ps -eaf | grep nginx
 sudo kill -9 1764
@@ -28,11 +17,6 @@ See if any process still running
 ```
 sudo netstat -tulpn | grep :80
 ```
-Restart the apache2 
-```
-sudo systemctl restart apache2
-```
-Nothing above was useful
 Used docker instead:
 Used the following link
 https://graphite.readthedocs.io/en/latest/install.html#docker
