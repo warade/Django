@@ -129,7 +129,7 @@ def someview(request):
 3. You can find the graph on grafana, path -> stats_count.test.count
 
 (Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
-
+( Blog for statsd - https://codeascraft.com/2011/02/15/measure-anything-measure-everything/ )
 
 # links used
 https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
