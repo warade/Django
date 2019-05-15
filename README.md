@@ -133,3 +133,21 @@ sudo apt-get install grafana
 ```
 sudo service grafana-server start
 ```
+
+# Installation of statsd on django application
+1. When you have build a django application, we need statsd which listens continously to port 8125
+   Hence we have to install statsd which is integrated with django
+```
+pip install statsd
+```
+2. In the django app view do the following:
+```
+from django.shortcuts import render
+from statsd.defaults.django import statsd
+from django.http import HttpResponse
+
+def someview(request):
+	statsd.incr('test.count')
+	return HttpResponse('Hello, World!')
+```
+3. You can find the graph on grafana, path -> stats_count.test.count
