@@ -1,10 +1,12 @@
 # Django
-## For Graphite and Grafana
-# Installed graphite using following link 
+## Step 1 For Graphite and Grafana
+# Tried installing graphite using following link 
 https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
+But it didn't work
 
 # For Grafana installation
 https://grafana.com/docs/installation/debian/
+Worked!
 
 After these two you need to start apache server
 Installed apache with the following command
@@ -53,6 +55,7 @@ docker run -d\
  ```
  It ran after some time, maybe docker takes time to start.
  
+ # Step 2
  Graphite is up running.
  You can see a memUsage file.
  Graphite does read the data, we have to feed it.
@@ -61,10 +64,10 @@ docker run -d\
  ```
 Metric messages need to contain a metric name, a value, and a timestamp. We can do this in our terminal. Let's create a value that will match our test storage schema that we created. We will also match one of the definitions that will add up the values when it aggregates. We'll use the date command to make our timestamp.
 
-Now, what the problem is our grafana is using sqlite3 database,
-we want relational database to use.
-Thats why we have to change the ini file of grafana
-which is at, and change type of the database.
+# Step 3
+if we want relational database to use.
+We change the ini file of grafana
+which is at
 ```
 /etc/grafana/grafana.ini
 ```
