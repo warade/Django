@@ -135,3 +135,5 @@ def someview(request):
 	return HttpResponse('Hello, World!')
 ```
 3. You can find the graph on grafana, path -> stats_count.test.count
+
+(Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
