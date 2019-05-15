@@ -1,0 +1,8 @@
+<h1> List View </h1>
+{% for object in object_list %}
+
+<li>
+	<a href='/blog/{{object.id}}'> {{object.title}} </a>
+</li>
+
+{% endfor %}
