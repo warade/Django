@@ -128,6 +128,54 @@ def someview(request):
 ```
 3. You can find the graph on grafana, path -> stats_count.test.count
 
+NOTE: Above statsd setup worked in localhost
+The setup was
+- Django project
+ - view.py
+ ```
+ from django.shortcuts import render
+ from statsd.defaults.django import statsd
+ from django.http import HttpResponse
+
+ def someview(request):
+ 	 statsd.incr('test.count')
+	 return HttpResponse('Hello, World!')
+ ```
+But didn't worked in AWS
+The setup was
+- Django proect
+ - settings.py
+  ```
+  STATSD_HOST = 'ec2-52-26-169-20.us-west-2.compute.amazonaws.com'
+  STATSD_PORT = 8125
+  ```
+ - views.py
+ same as above
+
+4. What worked then?
+Installed pyformance, and feeded the counter data to carbon at 2003 using graphitesend
+- Install pyformance
+```
+pip install pyformance
+```
+- view.py
+```
+from django.shortcuts import render
+from statsd.defaults.django import statsd
+from django.http import HttpResponse
+import graphitesend
+from pyformance import counter, count_calls
+
+@count_calls
+def someview(request):
+	#statsd.incr('success.count')
+	g = graphitesend.init(prefix='test', system_name='', graphite_server='ec2-52-26-169-20.us-west-2.compute.amazonaws.com')
+	g.send('count', counter("someview_calls").get_count())
+	return HttpResponse('Hello, World!')
+```
+- nothing was in settings.py as we are not setting statsd.
+ 	
+
 (Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
 ( Blog for statsd - https://codeascraft.com/2011/02/15/measure-anything-measure-everything/ )
 
