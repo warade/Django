@@ -65,14 +65,6 @@ g = graphitesend.init(prefix='test', system_name='', graphite_server='127.0.0.1'
 g.send('count', 10)
 ```
 
-# links used
-https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-graphite-on-an-ubuntu-14-04-server
-https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd
-https://grafana.com/docs/installation/configuration/
-https://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/
-https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
-
 # Installation of Graphite on aws
 1. Install docker
 ```
@@ -137,4 +129,13 @@ def someview(request):
 3. You can find the graph on grafana, path -> stats_count.test.count
 
 (Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
-(https://django-statsd.readthedocs.io/en/latest/)
+
+
+# links used
+https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-graphite-on-an-ubuntu-14-04-server
+https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd
+https://grafana.com/docs/installation/configuration/
+https://matt.aimonetti.net/posts/2013/06/26/practical-guide-to-graphite-monitoring/
+https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
+https://django-statsd.readthedocs.io/en/latest/
