@@ -214,3 +214,4 @@ https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
 https://django-statsd.readthedocs.io/en/latest/
 https://pyformance.readthedocs.io/en/latest/usage.html
 https://github.com/statsd/statsd
+https://www.agiliq.com/blog/2014/12/building-a-restful-api-with-django-rest-framework/
