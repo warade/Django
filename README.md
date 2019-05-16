@@ -173,6 +173,31 @@ def someview(request):
 	g.send('count', counter("someview_calls").get_count())
 	return HttpResponse('Hello, World!')
 ```
+
+Above had issues when the function is def(self, request) and it is in class based view,
+As class based views are used in API frameworks, we have to do following method for counter.
+Used below view.py
+```
+import graphitesend
+from pyformance.meters import counter
+from pyformance.registry import MetricsRegistry
+
+global metricsRegistry
+metricsRegistry = MetricsRegistry()
+
+class UserList(APIView):
+	def get(self, request, format=None):
+	    users = User.objects.all()
+	    serializer = UserSerializer(users, many=True)
+	    counter = metricsRegistry.counter("GET_called")
+	    counter.inc()
+	    g = graphitesend.init(prefix='test', system_name='', graphite_server='ec2-52-26-169-20.us-west-2.compute.amazonaws.com')
+	    g.send('count', counter.get_count())
+	    #print(counter("get_calls").get_count())
+	    return Response(serializer.data)
+```
+Reference: http://techtraits.com/programming/monitoring/python/2013/02/17/Monitoring-python-servers-with-pyformance-and-graphite.html
+
 - nothing was in settings.py as we are not setting statsd.
  	
 
