@@ -1,10 +1,10 @@
 
-## Step 1 For Graphite and Grafana
-# Tried installing graphite using following link 
+# Step 1 For Graphite and Grafana
+Tried installing graphite using following link 
 https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
 But it didn't work
 
-# For Grafana installation
+For Grafana installation
 https://grafana.com/docs/installation/debian/
 Worked!
 
