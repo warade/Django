@@ -203,6 +203,7 @@ Reference: http://techtraits.com/programming/monitoring/python/2013/02/17/Monito
 
 (Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
 ( Blog for statsd - https://codeascraft.com/2011/02/15/measure-anything-measure-everything/ )
+( Blog for Login Django code https://medium.freecodecamp.org/user-authentication-in-django-bae3a387f77d )
 
 # links used
 https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04
