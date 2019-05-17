@@ -199,7 +199,10 @@ class UserList(APIView):
 Reference: http://techtraits.com/programming/monitoring/python/2013/02/17/Monitoring-python-servers-with-pyformance-and-graphite.html
 
 - nothing was in settings.py as we are not setting statsd.
- 	
+
+# Integrating it with the login app
+Used signals in models.py whenever a user login.
+Read the readme.md file.
 
 (Side note -> django_statsd is a middleware that uses python-statsd to log query and view durations to statsd.)
 ( Blog for statsd - https://codeascraft.com/2011/02/15/measure-anything-measure-everything/ )
